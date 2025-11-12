@@ -20,6 +20,8 @@ export async function main(ns) {
     ['hack', 'str', 'def', 'dex', 'agi', 'cha'].forEach((stat) => {
       if (ascResults[stat] < 2) {
         shouldAscend = false;
+      } else {
+        shouldAscend = true;
       }
     });
     //If we have any wanted level, set up to decreate it down to 1

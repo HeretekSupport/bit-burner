@@ -1,6 +1,6 @@
 /** @param {NS} ns */
 export async function main(ns) {
-  const files = ['weakenplace.js', 'growplace.js', 'hackplace.js', 'Carrier1.js'];
+  const files = ['weakenplace.js', 'growplace.js', 'hackplace.js', 'carrier.js', 'factionBuff.js'];
   const serverFleet = ns.getPurchasedServers();
 
   serverFleet.forEach(server => {

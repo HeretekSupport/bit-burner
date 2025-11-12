@@ -1,10 +1,17 @@
 /** @param {NS} ns */
 export async function main(ns) {
-  const serverPrice = ns.getPurchasedServerCost(16);
+  let startCount = ns.args[0];
+  let stopCount = ns.args[1];
+  let ramAmt = ns.args[2]; //1024 for the 1tb servers
+  const serverPrice = ns.getPurchasedServerCost(ramAmt);
 
   let homeMoney = ns.getServerMoneyAvailable("home");
 
-  for (let i = 21; i < 41; i++) {
-    ns.purchaseServer(`Destroyer${i}`, 16)
+  for (startCount; startCount < stopCount; startCount++) {
+    if (homeMoney > serverPrice) {
+      ns.purchaseServer(`Destroyer${startCount}`, ramAmt);
+      ns.tprint(`Bought Destroyer${startCount}`);
+      homeMoney = ns.getServerMoneyAvailable("home");
+    }
   }
-}
+};
